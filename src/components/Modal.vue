@@ -2,14 +2,17 @@
   <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale' }">
       <h1>{{ modalTitle }}</h1>
-      <p>{{ content }}</p>
+      <slot>Here is default content for the slot</slot>
+      <div class="actions">
+        <slot name="links"></slot>
+      </div>
     </div>
   </div>
 </template>
 
 <script scope>
 export default {
-  props: ["modalTitle", "content", "theme", "showModal"],
+  props: ["modalTitle", "theme", "showModal"],
   methods: {
     closeModal() {
       console.log("ssss");

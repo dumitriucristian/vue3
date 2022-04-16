@@ -9,7 +9,13 @@
       :content="modalContent"
       :theme="theme"
       @close="toggleModal"
-    />
+    >
+      <div>This will be the template passed by the slot</div>
+      <template v-slot:links>
+        <a href="more">more</a>
+        <a href="more">less</a>
+      </template>
+    </ModalVue>
   </div>
 </template>
 
@@ -17,14 +23,12 @@
 import ModalVue from "./components/Modal.vue";
 
 export default {
-  //showModal: true,
   name: "App",
   components: { ModalVue },
   data() {
     return {
       title: "My First Vue app :)",
       modalTitle: "Here is tha modal title",
-      modalContent: "This   is content of the modal",
       theme: "sale",
       showModal: false,
     };
